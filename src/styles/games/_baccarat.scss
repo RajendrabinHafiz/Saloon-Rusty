@@ -1,0 +1,575 @@
+#baccarat-game {
+  width: calc(100% - 40px);
+  max-width: 1327px;
+  margin: 0 auto;
+  .game-container {
+    height: max-content;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #1e2024;
+    width: 100%;
+    min-height: 700px;
+    height: 700px;
+    .line-container {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 350px auto;
+      grid-gap: 10px;
+      position: relative;
+      width: 100%;
+      & > div {
+        height: 100%;
+      }
+      .game-content-inside {
+        width: 100%;
+        height: 100%;
+        // display: grid;
+        background-color: $black-opacity;
+        padding: 20px;
+        // grid-template-rows: auto 95px;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .poker-cards {
+          position: absolute;
+          width: 80%;
+          left: 50%;
+          top: 100px;
+          transform: translateX(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .player-cards {
+            position: relative;
+            .score {
+              background-color: $white-opacity;
+              font-size: 12px;
+              padding: 5px 20px;
+              margin: -10px -20px;
+              border-radius: 50px;
+            }
+
+            &.right {
+              @for $i from 1 through 20 {
+                .card:nth-child(#{$i}) {
+                  top: (15 * $i) + px;
+                  right: (35 * $i) + px;
+                }
+              }
+            }
+
+            &.left {
+              @for $i from 1 through 20 {
+                .card:nth-child(#{$i}) {
+                  top: (15 * $i) + px;
+                  left: (35 * $i) + px;
+                }
+              }
+            }
+
+            .card {
+              position: absolute;
+              width: 100px;
+              perspective: 700px;
+              transition: 0.25s;
+              transform-style: preserve-3d;
+              transition-timing-function: ease-out;
+              transition-property: transform, box-shadow;
+              border-radius: 10px;
+              animation: fadeLeftIn 0.2s ease-in-out;
+              margin: 0;
+
+              @keyframes fadeLeftIn {
+                from {
+                  margin-left: 5px;
+                  opacity: 0;
+                }
+                to {
+                  margin-left: 0;
+                  opacity: 1;
+                }
+              }
+              &.active {
+                transform: rotateY(180deg);
+              }
+              img {
+                position: absolute;
+                top: 0;
+                left: 0;
+              }
+              .poker-card {
+                position: relative !important;
+                width: 100%;
+                margin: 0;
+                transform: scaleX(-1);
+                border-radius: 10px;
+              }
+
+              .default-card {
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+              }
+            }
+          }
+        }
+        .down-section {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          .bet-section-cards {
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            margin: 0 auto;
+            .bet-section-card {
+              background-color: $white-opacity;
+              height: 100px;
+              border-radius: 5px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              cursor: pointer;
+              border: 2px solid $white-opacity;
+              position: relative;
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.18);
+              }
+
+              .title {
+                font-size: 25px;
+                text-align: center;
+                width: max-content;
+                color: rgb(191, 191, 191);
+                text-transform: uppercase;
+              }
+              .amount {
+                width: max-content;
+                display: flex;
+                margin: 5px auto;
+                align-items: center;
+                img {
+                  width: 18px;
+                  margin-right: 5px;
+                }
+                span {
+                  font-size: 15px;
+                  color: #ddd;
+                }
+              }
+              .circles-poker {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                .circle-poker {
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  background-color: $main-color;
+                  position: relative;
+                  margin: -23px 0;
+                  box-shadow: 0 0 10px $black-opacity;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                  span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 12px;
+                    color: #fff;
+                    text-shadow: 0 0 10px #000;
+                  }
+                }
+              }
+            }
+          }
+          .controll-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 10px auto;
+            .button {
+              padding: 10px 20px;
+              background-color: $white-opacity;
+              border-radius: 5px;
+              display: flex;
+              margin: 0 10px;
+              align-items: center;
+              border: 1px solid transparent;
+              &:hover {
+                background-color: $white-opacity-second;
+                border: 1px solid $white-opacity;
+              }
+              img {
+                margin: 0 5px 0 0;
+                filter: brightness(0) invert(1);
+                width: 20px;
+              }
+            }
+          }
+        }
+        .image-tie-pays {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 400px;
+        }
+        .silence-card {
+          position: absolute;
+          top: -77.5px;
+          right: 40px;
+          width: 100px;
+
+          .hover-cards {
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+            height: 155px;
+
+            div {
+              width: 100%;
+              height: 140px;
+              background-color: #fff;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              position: absolute;
+              left: 0;
+              border-radius: 10px;
+              &:nth-child(1) {
+                top: 3px;
+                z-index: 4;
+              }
+
+              &:nth-child(2) {
+                top: 5px;
+                z-index: 3;
+              }
+              &:nth-child(3) {
+                top: 9px;
+                z-index: 2;
+              }
+              &:nth-child(4) {
+                top: 13px;
+                z-index: 1;
+              }
+            }
+          }
+
+          .hover-cards,
+          .default-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          .default-card {
+            width: 100%;
+            z-index: 2;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .bet-section-container {
+        width: 350px;
+        height: 100%;
+        background-color: #24262b;
+        position: relative;
+        border-radius: 10px;
+        .type-betting {
+          width: calc(100% - 40px);
+          margin: 20px auto 0 auto;
+          display: grid;
+          grid-template-columns: auto auto;
+          padding: 5px;
+          .betting-type {
+            font-size: 15px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.11);
+
+            &:hover,
+            &.active {
+              span {
+                color: #fff;
+              }
+              img {
+                filter: brightness(0) invert(1);
+              }
+            }
+
+            &.active {
+              border-bottom: 2px solid $main-color;
+            }
+            span {
+              margin: 10px 0;
+              color: #686f78;
+            }
+            img {
+              width: 20px;
+            }
+          }
+        }
+
+        .primary-button {
+          text-align: center;
+          margin: 0 auto 10px auto;
+          padding: 10px 0;
+          color: #ddd;
+          border-radius: 5px;
+          width: calc(100% - 40px);
+          background: $white-opacity;
+          font-size: 15px;
+          cursor: pointer;
+          border: 2px solid transparent;
+          &:hover {
+            border: 2px solid $white-opacity-second;
+          }
+          &.disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+          }
+        }
+
+        .small-container {
+          width: calc(100% - 40px);
+          margin: 0 auto 20px auto;
+
+          .difficulty {
+            margin: 5px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background-color: rgba(255, 255, 255, 0.026);
+            border-radius: 5px;
+            .diff-item {
+              padding: 10px 15px;
+              text-align: center;
+              font-size: 15px;
+              text-transform: uppercase;
+              border-radius: 5px;
+              cursor: pointer;
+              color: #686f78;
+              transition: 0.25s cubic-bezier(0.77, 0, 0.175, 1);
+              &.active {
+                color: #ddd;
+                background-color: $white-opacity;
+              }
+            }
+          }
+        }
+
+        .bet-button {
+          width: calc(100% - 40px);
+          background: $main-color;
+          border-radius: 5px;
+          padding: 10px;
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+          margin: 0px auto;
+          &:hover {
+            background-color: darken($main-color, 5);
+          }
+          &.disabled {
+            cursor: not-allowed;
+            opacity: 0.3;
+          }
+        }
+        .label {
+          color: #686f78;
+          font-family: "Bai Jamjuree";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 11px;
+          text-transform: uppercase;
+          line-height: 18px;
+          margin: 0 3px;
+        }
+        .betting {
+          padding: 10px 20px;
+          .switcher-input {
+            width: 100%;
+            height: 50px;
+            padding: 0;
+            background-color: $white-opacity-second;
+            display: grid;
+            grid-template-columns: 40px auto 40px;
+            margin: 5px auto 10px auto;
+            border-radius: 5px;
+            & > div {
+              height: 100%;
+            }
+            .button-control {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              overflow: hidden;
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.026);
+              }
+              img {
+                width: 30px;
+              }
+            }
+            .contnet-cards {
+              background-color: $black-opacity;
+              border: 2px solid transparent;
+
+              overflow: hidden;
+              &:hover {
+                border: 2px solid $white-opacity;
+              }
+              .container-circles {
+                width: max-content;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                transform: translateX(0px);
+              }
+              .amount-circle-poker {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                min-width: 35px;
+                height: 100%;
+                position: relative;
+                margin: 0 5px;
+                height: max-content;
+                background-color: $main-color;
+                border-radius: 50px;
+                cursor: pointer;
+                &:hover {
+                  box-shadow: 0 0 0 0.15em $white-opacity;
+                }
+                &.active {
+                  box-shadow: 0 0 0 0.15em #1475e1;
+                }
+                span {
+                  position: absolute;
+                  font-size: 14px;
+                  color: rgb(255, 255, 255);
+                  font-weight: bold;
+                  text-shadow: 0 0 10px $black-opacity;
+                }
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+          }
+          .partittwo {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 5px;
+            background-color: #2a2c30;
+            border-radius: 5px;
+            height: max-content;
+            margin: 5px auto;
+            padding: 5px;
+
+            &.disabled {
+              .input {
+                &,
+                div,
+                input {
+                  cursor: not-allowed;
+                  opacity: 0.5;
+                }
+              }
+            }
+
+            .left-buttons {
+              display: grid;
+              grid-template-columns: auto auto;
+              & > div {
+                padding: 10px;
+                margin: 0 5px 0 0;
+                font-size: 13px;
+                color: #686f78;
+                height: max-content;
+                &.active {
+                  background-color: #32343a;
+                  color: #fff;
+                }
+              }
+            }
+            .input {
+              border: none;
+              margin: 0;
+              background-color: #1e2024;
+              &:hover {
+                border: none;
+              }
+            }
+          }
+          .input {
+            width: 100%;
+            margin: 4px auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            &:focus,
+            &:hover {
+              border: 2px solid $white-opacity;
+            }
+
+            .right {
+              margin: 0 5px;
+            }
+
+            img {
+              margin: 0 5px;
+            }
+            input {
+              margin-left: 5px;
+              width: 90%;
+              background-color: transparent !important;
+              outline: none;
+              border: none;
+              font-family: "Bai Jamjuree";
+              font-style: normal;
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 24px;
+              color: #ffffff;
+            }
+
+            .duplicate-buttons {
+              display: flex;
+              .button {
+                padding: 5px 10px;
+                color: #7b828c;
+                cursor: pointer;
+                margin: 0 0 0 5px;
+                background-color: rgba(255, 255, 255, 0.05);
+                &:hover {
+                  color: #fff;
+                  background-color: $white-opacity-second;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

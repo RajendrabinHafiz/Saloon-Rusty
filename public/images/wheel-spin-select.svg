@@ -1,0 +1,19 @@
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.07 320.26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #cd412a;
+        stroke: #b7392c;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-2 {
+        opacity: 0.16;
+      }
+    </style>
+  </defs>
+  <title>wheel-spin-select</title>
+  <path class="cls-1" d="M-154.87-199.83h0a63,63,0,0,1,61.94,74.62l-61.94,235.78-61.94-235.78A63,63,0,0,1-154.87-199.83Z" transform="translate(219.91 201.83)"/>
+  <circle class="cls-2" cx="65.04" cy="64.08" r="48.12"/>
+</svg>

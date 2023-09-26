@@ -1,0 +1,357 @@
+#video-poker {
+  width: calc(100% - 40px);
+  margin: 0px auto;
+  max-width: 1320px;
+  &.mobile {
+    .container {
+      height: unset !important;
+      & > .wrap {
+        display: block !important;
+        .bet-section {
+          width: 100% !important;
+          height: max-content !important;
+          padding: 5px 10px 10px 10px !important;
+        }
+        .payout-table {
+          width: 100% !important;
+          .duplicated,
+          .payout-called {
+            font-size: 12px !important;
+          }
+        }
+        .cards-poker {
+          display: block !important;
+          width: 100% !important;
+          .card {
+            display: inline-block !important;
+            width: 80px !important;
+            min-width: 80px !important;
+            margin: 10px 4px !important;
+            .hold-wrap {
+              font-size: 10px !important;
+              bottom: -10px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .container {
+    height: 600px;
+    border-radius: 10px;
+    min-height: 600px;
+    padding: 20px;
+    background-color: #1e2024;
+    width: 100%;
+    position: relative;
+    max-width: unset !important;
+    .wrap {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      .bet-section {
+        width: 430px;
+        transition: 0s;
+        height: 100%;
+        background-color: #24262b;
+        border-radius: 10px;
+        margin: 0 10px 0 0;
+        padding: 10px 15px;
+        position: relative;
+        .form-input {
+          width: calc(100% - 20px);
+          margin: 20px auto 10px auto;
+
+          .label {
+            color: #686f78;
+            font-family: "Bai Jamjuree";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 18px;
+            text-transform: uppercase;
+            margin: 0 5px;
+          }
+          .input {
+            width: 100%;
+            margin: 8px auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            &:focus,
+            &:hover {
+              border: 2px solid $white-opacity;
+            }
+            .left {
+              width: 50%;
+              display: flex;
+              margin: 0 10px;
+              align-items: center;
+              img {
+                width: 20px;
+              }
+              input {
+                margin-left: 5px;
+                width: 90%;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                font-family: "Bai Jamjuree";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 24px;
+                color: #ffffff;
+              }
+            }
+
+            .duplicate-buttons {
+              display: flex;
+              .button {
+                padding: 5px 10px;
+                color: #7b828c;
+                cursor: pointer;
+                margin: 0 3px;
+                background-color: rgba(255, 255, 255, 0.05);
+                &:hover {
+                  color: #fff;
+                  background-color: $white-opacity-second;
+                }
+              }
+            }
+          }
+        }
+        .bet-button {
+          width: calc(100% - 20px);
+          background: $main-color;
+          border-radius: 5px;
+          padding: 10px;
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+          margin: 5px auto;
+          &:hover {
+            background-color: darken($main-color, 5);
+          }
+        }
+      }
+      .game-content {
+        width: 100%;
+        border-radius: 20px;
+        height: 100%;
+        position: relative;
+        .cards-poker {
+          position: relative;
+          width: 80%;
+          margin: 20px auto;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          .card {
+            position: relative;
+            background: unset;
+            margin: 10px;
+            height: 100%;
+            perspective: 700px;
+            transition: 0.25s;
+            transform-style: preserve-3d;
+            transition-timing-function: ease-out;
+            transition-property: transform, box-shadow;
+
+            &.active-selected,
+            &.active {
+              transform: rotateY(180deg);
+              cursor: pointer;
+            }
+
+            &.active-selected {
+              .card-poker {
+                box-shadow: 0 0 0 0.3em #1475e1;
+              }
+              .hold-wrap {
+                display: flex;
+                span {
+                  animation: scaleIn 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+                  @keyframes scaleIn {
+                    from {
+                      opacity: 0;
+                      transform: scale(0);
+                    }
+                    to {
+                      opacity: 1;
+                      transform: scale(1);
+                    }
+                  }
+                }
+              }
+            }
+
+            .hold-wrap {
+              display: none;
+              justify-content: center;
+              position: absolute;
+              width: 100%;
+              left: 50%;
+              font-size: 13px;
+              transform: translateX(-50%);
+              z-index: 1;
+              bottom: 7px;
+              transform: scaleX(-1) translateX(50%);
+
+              span {
+                width: max-content;
+                height: max-content;
+                background-color: $main-color;
+                color: #fff;
+                border-radius: 20px;
+                padding: 3px 15px;
+                box-shadow: 0 0 10px $black-opacity;
+              }
+            }
+
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              margin: 0;
+              padding: 0;
+              border: 0;
+              font-size: 100%;
+              font: inherit;
+              vertical-align: baseline;
+            }
+
+            .card-poker {
+              position: relative !important;
+              width: 100%;
+              margin: 0;
+              transform: scaleX(-1);
+              border-radius: 10px;
+            }
+
+            .default-card {
+              -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+            }
+          }
+        }
+
+        .payout-table {
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: 10px auto;
+          background-color: #24262b;
+          border-radius: 10px;
+          padding: 10px;
+
+          .wrap-line {
+            width: 100%;
+            margin: 2px auto;
+            .nickname-payout-tr {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              .left {
+                width: 70%;
+                display: flex;
+                height: max-content;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 4px;
+                .payout-called {
+                  width: 100%;
+                  color: #fff;
+                  border-radius: 4px 0 0 4px;
+                  text-transform: uppercase;
+                  font-family: "Bai Jamjuree";
+                  padding: 5px 10px;
+                  background-color: rgba(0, 0, 0, 0.28);
+                  font-size: 0.875rem;
+                }
+                .duplicated {
+                  width: 30%;
+                  color: #fff;
+                  margin: 0;
+                  font-weight: 600;
+                  border-radius: 0 4px 4px 0;
+                  background-color: $white-opacity;
+                  padding: 5px;
+                  font-size: 0.875rem;
+                  text-align: center;
+                }
+              }
+              .balance-become {
+                min-width: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.28);
+                span {
+                  padding: 0 20px;
+                  display: flex;
+                  img {
+                    width: 17px;
+                    margin: 0 0 0 5px;
+                  }
+                  .amount {
+                    width: max-content;
+                    color: #fff;
+                    font-size: 0.875rem;
+                    padding: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .control-section-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(100% - 10px);
+      margin: 10px auto 0 auto;
+      border-radius: 10px;
+      background-color: #24262b;
+      height: 70px;
+      .right {
+        display: flex;
+        align-items: center;
+        margin: 0 5px;
+        .button {
+          cursor: pointer;
+          &.fairness {
+            cursor: pointer;
+            margin: 10px;
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.05);
+              color: darken(#fff, 20);
+            }
+          }
+          &.deal {
+            width: 100px;
+            text-align: center;
+            background-color: $main-color;
+            padding: 10px 10px;
+            color: #fff;
+            text-align: 15px;
+            border-radius: 20px;
+            margin: 10px;
+            &:hover {
+              background-color: darken($main-color, 5);
+            }
+          }
+        }
+      }
+    }
+  }
+}

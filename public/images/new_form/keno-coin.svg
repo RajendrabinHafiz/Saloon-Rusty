@@ -1,0 +1,56 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60.48 60.48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        fill: #ec9f06;
+      }
+
+      .cls-5 {
+        fill: #ffd307;
+      }
+
+      .cls-6 {
+        fill: #f0ae0b;
+      }
+
+      .cls-7 {
+        fill: #f4c311;
+      }
+
+      .cls-8 {
+        fill: #fdea28;
+      }
+    </style>
+    <clipPath id="clip-path" transform="translate(-7.26 -7.26)">
+      <rect class="cls-1" x="7.27" y="7.27" width="60.46" height="60.46"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="29.79" y1="67.64" x2="45.44" y2="9.24" gradientTransform="matrix(0.97, 0.26, 0.26, -0.97, -8.77, 64.91)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe259"/>
+      <stop offset="1" stop-color="#fbd421"/>
+    </linearGradient>
+  </defs>
+  <title>keno-coin</title>
+  <g class="cls-2">
+    <g>
+      <path class="cls-3" d="M56.27,67.72,67.74,56.25l0-37.52L56.25,7.26l-37.52,0L7.26,18.75l0,37.52L18.75,67.74Z" transform="translate(-7.26 -7.26)"/>
+      <path class="cls-4" d="M51.11,58.77H24.24l-5.49,9,37.51,0v0Z" transform="translate(-7.26 -7.26)"/>
+      <path class="cls-5" d="M50.71,58.77l8.07-8.07V24.29L50.7,16.22H24.29L16.22,24.3V50.71l8.07,8.07Z" transform="translate(-7.26 -7.26)"/>
+      <path class="cls-6" d="M18.75,67.74l5.55-9-8.07-8.07L7.28,56.27Z" transform="translate(-7.26 -7.26)"/>
+      <path class="cls-7" d="M7.26,18.75l9,5.55,8.07-8.07L18.73,7.28Z" transform="translate(-7.26 -7.26)"/>
+      <path class="cls-6" d="M56.27,67.72l-5.56-8.95,8.07-8.07,9,5.55Z" transform="translate(-7.26 -7.26)"/>
+      <path class="cls-8" d="M67.72,18.73l-8.95,5.56L50.7,16.22l5.55-9Z" transform="translate(-7.26 -7.26)"/>
+    </g>
+  </g>
+</svg>

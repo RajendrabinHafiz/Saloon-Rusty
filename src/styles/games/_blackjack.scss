@@ -1,0 +1,369 @@
+#blackjack {
+  width: calc(100% - 40px);
+  max-width: 1327px;
+  margin: 0 auto;
+  &.mobile, &.optimize-screen {
+    .game-container {
+      height: max-content !important;
+      min-height: unset !important;
+      padding: 1px 20px 20px 20px;
+      .line-container {
+        display: block !important;
+      }
+      .bet-section-container {
+        width: 100% !important;
+        margin: 0 0 20px 0 !important;
+        padding: 0px 0 20px 0 !important;
+        
+      }
+      .end-bar {
+        position: unset !important;
+        width: calc(100% - 40px) !important;
+        margin: 10px auto 0 auto !important;
+      }
+      .game-content-inside {
+        height: max-content !important;
+        display: block !important;
+        .game-content {
+          .center-content {
+            margin: 60px 0 !important;
+          }
+        }
+        .game-details-section {
+          margin: 30px 0 0 0 !important;
+        }
+      }
+    }
+  }
+  .game-container {
+    height: max-content;
+    border-radius: 10px;
+    min-height: 600px;
+    position: relative;
+    padding: 20px;
+    background-color: #1e2024;
+    width: 100%;
+
+    .line-container {
+      position: relative;
+      height: calc(100% - 10px);
+      display: grid;
+      grid-template-columns: 350px auto;
+      grid-gap: 10px;
+
+      width: 100%;
+      & > div {
+        height: 100%;
+      }
+      .game-content-inside {
+        .game-table {
+          width: calc(100% - 30px);
+          overflow: hidden;
+          height: 700px;
+          max-width: 1350px;
+          margin: 10px auto;
+          background-color: rgba(0, 0, 0, 0.44);
+          border-radius: 50px 50px 50% 50%;
+          border: 10px solid $white-opacity;
+          position: relative;
+          .hoover-border-in {
+            border-radius: 50px 50px 50% 50%;
+            border: 2px dashed $white-opacity;
+            width: 80%;
+            height: calc(80% - 40px);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .text {
+              color: $white-opacity;
+              opacity: 0.7;
+              font-size: 27px;
+            }
+          }
+          .game-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            .static-cards {
+              position: absolute;
+              right: 60px;
+              top: 50px;
+              width: 80px;
+              .silenced-cards {
+                width: 100%;
+                height: max-content;
+                top: calc(50% - 13px);
+                div {
+                  position: absolute;
+                  left: 0;
+                  background-color: #fff;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.529);
+                  border-radius: 10px;
+                  width: 100%;
+                  height: 108px;
+
+                  &:nth-child(1) {
+                    top: 3px;
+                    z-index: 4;
+                  }
+                  &:nth-child(2) {
+                    top: 5px;
+                    z-index: 3;
+                  }
+                  &:nth-child(3) {
+                    top: 9px;
+                    z-index: 2;
+                  }
+                  &:nth-child(4) {
+                    top: 13px;
+                    z-index: 1;
+                  }
+                }
+              }
+
+              .default-card {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 5;
+              }
+            }
+
+            .game-cards {
+              position: relative;
+              padding: 10px;
+              margin: 20px auto;
+              height: 100%;
+              width: 200px;
+              & > div {
+                width: 100%;
+                .card-counter {
+                  background-color: #191b1e;
+                  padding: 2px 20px;
+                  text-align: center;
+                  font-weight: bold;
+                  position: absolute;
+                  top: 150px;
+                  left: 30px;
+                  font-size: 16px;
+                  width: max-content;
+                  height: max-content;
+                  border-radius: 20px;
+                  color: #fff;
+                }
+
+                &.top-content {
+                  margin: 100px 0 0 0;
+                  position: relative;
+                  .top-cards {
+                    display: flex;
+                  }
+                }
+
+                &.bottom-content {
+                  position: absolute;
+                  bottom: 40%;
+                  left: 0;
+                  width: 100%;
+                  .bottom-cards {
+                    display: flex;
+                  }
+                }
+              }
+
+              @for $i from 1 through 20 {
+                .poker-card:nth-child(#{$i}) {
+                  top: (10 * $i) + px;
+                  left: (35 * $i) + px;
+                }
+              }
+
+              .poker-card {
+                position: absolute;
+                border-radius: 10px;
+                // position: relative;
+                width: 80px;
+                background: unset;
+                // margin: 10px;
+                left: 10px;
+                perspective: 700px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
+                transition: 0.25s;
+                transform-style: preserve-3d;
+                transition-timing-function: ease-out;
+                transition-property: transform, box-shadow;
+                animation: fadeLeftIn 0.2s ease-in-out;
+
+                @keyframes fadeLeftIn {
+                  from {
+                    margin-left: 5px;
+                    opacity: 0;
+                  }
+                  to {
+                    margin-left: 0;
+                    opacity: 1;
+                  }
+                }
+
+                &.active-selected,
+                &.active {
+                  transform: rotateY(180deg);
+                }
+
+                &.active-selected {
+                  .card-poker {
+                    box-shadow: 0 0 0 0.3em #1475e1;
+                  }
+                }
+
+                img {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  margin: 0;
+                  padding: 0;
+                  border: 0;
+                  font-size: 100%;
+                  font: inherit;
+                  vertical-align: baseline;
+                }
+
+                .card-poker {
+                  position: relative !important;
+                  width: 100%;
+                  margin: 0;
+                  transform: scaleX(-1);
+                  border-radius: 10px;
+                }
+
+                .default-card {
+                  -webkit-backface-visibility: hidden;
+                  backface-visibility: hidden;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bet-section-container {
+        width: 350px;
+        min-width: 350px;
+        transition: 0s;
+        position: relative;
+        border-radius: 10px;
+        background-color: #24262b;
+        .bet-button {
+          width: calc(100% - 40px);
+          background: $main-color;
+          border-radius: 5px;
+          padding: 10px;
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+          margin: 5px auto;
+          &:hover {
+            background-color: darken($main-color, 5);
+          }
+          &.disabled {
+            cursor: not-allowed;
+            opacity: 0.3;
+          }
+        }
+        .label {
+          color: #686f78;
+          font-family: "Bai Jamjuree";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 11px;
+          text-transform: uppercase;
+          line-height: 18px;
+          margin: 0 3px;
+        }
+        .decision {
+          padding: 20px;
+          .wrap-line-buttons {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            .button {
+              margin: 10px 0 0 0;
+              padding: 10px 20px;
+              text-align: center;
+              width: calc(50% - 5px);
+              display: flex;
+              background-color: $white-opacity-second;
+              align-items: center;
+              border-radius: 4px;
+              justify-content: center;
+              &:hover {
+                background-color: $white-opacity;
+              }
+              span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 500;
+              }
+              img {
+                width: 14px;
+                margin: 0 0 0 5px;
+              }
+            }
+          }
+        }
+        .betting {
+          padding: 20px;
+          .input {
+            width: 100%;
+            margin: 4px auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            &:focus,
+            &:hover {
+              border: 2px solid $white-opacity;
+            }
+
+            input {
+              margin-left: 5px;
+              width: 90%;
+              background-color: transparent !important;
+              outline: none;
+              border: none;
+              font-family: "Bai Jamjuree";
+              font-style: normal;
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 24px;
+              color: #ffffff;
+            }
+
+            .duplicate-buttons {
+              display: flex;
+              .button {
+                padding: 5px 10px;
+                color: #7b828c;
+                cursor: pointer;
+                margin: 0 0 0 5px;
+                background-color: rgba(255, 255, 255, 0.05);
+                &:hover {
+                  color: #fff;
+                  background-color: $white-opacity-second;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

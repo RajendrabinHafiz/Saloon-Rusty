@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.5 51.94">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fefefe;
+      }
+
+      .cls-2 {
+        fill: #15c456;
+      }
+    </style>
+  </defs>
+  <title>slide-selector</title>
+  <rect class="cls-1" x="34.9" y="54.79" width="7.42" height="7.42" transform="translate(19.31 -21.97) rotate(45)"/>
+  <polygon class="cls-1" points="6.29 38.14 10.13 44.23 5.31 39.41 0.37 44.35 4.31 38.17 5.79 0 6.29 38.14"/>
+  <path class="cls-2" d="M38.08,11.8" transform="translate(-33.36 -11.8)"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #15c456;
+      }
+    </style>
+  </defs>
+  <title>chevron-down-circle-green</title>
+  <path class="cls-1" d="M23.07.24a22.5,22.5,0,1,0,22.5,22.5A22.5,22.5,0,0,0,23.07.24ZM35.35,20,24.29,31a1.83,1.83,0,0,1-2.61,0L10.77,20a.5.5,0,0,1,.36-.86H35A.5.5,0,0,1,35.35,20Z" transform="translate(-0.57 -0.24)"/>
+</svg>

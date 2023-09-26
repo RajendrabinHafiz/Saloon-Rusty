@@ -1,0 +1,56 @@
+.bet-player-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  &.active {
+    background: rgba(#dcb34a, 0.1);
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: radial-gradient(
+        3150% 75% at 50% 50%,
+        #dcb34a 0%,
+        rgba(220, 179, 74, 0) 100%
+      );
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    &::after {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+  .player-details {
+    .circle-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .name {
+      margin: 0 10px;
+    }
+  }
+  .amount {
+    img {
+      margin: 0 5px;
+    }
+  }
+}

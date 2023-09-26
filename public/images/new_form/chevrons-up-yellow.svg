@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffce00;
+      }
+    </style>
+  </defs>
+  <title>chevrons-up-yellow</title>
+  <path class="cls-1" d="M22.5,9.13l16,16a3.78,3.78,0,0,0,5.34-5.34L25.17,1.11a3.77,3.77,0,0,0-5.34,0L1.11,19.83a3.78,3.78,0,0,0,5.34,5.34Zm0,22.59L34.73,43.88a3.83,3.83,0,0,0,5.42-5.41L25.23,23.61c-1.49-1.49-2.59-1.25-4.07.23L4.89,38.47a3.81,3.81,0,0,0,0,5.41,3.86,3.86,0,0,0,5.43,0Z" transform="translate(0)"/>
+</svg>

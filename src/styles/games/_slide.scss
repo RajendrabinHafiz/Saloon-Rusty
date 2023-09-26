@@ -1,0 +1,574 @@
+#slide-game {
+  width: calc(100% - 40px);
+  max-width: 1327px;
+  margin: 20px auto;
+  .line-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 350px auto;
+    grid-gap: 10px;
+    width: 100%;
+    height: 700px;
+    background: #1e2024;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    .game-container {
+      background-color: $black-opacity;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .history-up {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: calc(100% - 20px);
+        margin: 0px auto;
+        overflow: hidden;
+        .item {
+          padding: 5px 15px;
+          font-size: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $white-opacity;
+          border-radius: 20px;
+          margin: 0 5px 0 0;
+          color: #686f78;
+          animation: fadeIn 0.25s ease-in-out;
+          &.white {
+            color: #fff;
+          }
+
+          
+          &.green {
+            color: $success-color;
+            background-color: rgba($success-color, 0.2);
+          }
+
+          &.blue {
+            color: rgb(24, 130, 236);
+            background-color: rgba(24, 130, 236, 0.2);
+
+          }
+
+          &.yellow {
+            color: rgb(243, 183, 18);
+            background-color: rgba(243, 183, 18, 0.2);
+          }
+
+
+        }
+      }
+      .game-status {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: max-content;
+        padding: 10px 0;
+        .bets-count {
+          margin: 0 25px;
+          display: flex;
+          align-items: center;
+          .status-circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            background-color: $success-color;
+          }
+        }
+        .progress-bar {
+          width: calc(100% - 40px);
+          margin: 10px auto;
+          .fill {
+            width: 40%;
+            height: 100%;
+            border-radius: 20px;
+            background-color: $main-color;
+          }
+        }
+        .count-down {
+          position: absolute;
+          bottom: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      .selector-slide {
+        position: absolute;
+        left: 50%;
+        top: 65%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .center-cards {
+        width: 100%;
+        max-height: 100%;
+        padding: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-x: hidden;
+        .gradient-fade {
+          background: linear-gradient(90deg, #17181b, transparent, #17181b);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+        }
+
+        .wrap-cards {
+          display: flex;
+          // transition: 0s;
+          will-change: transform;
+          // transform: translateX(-165.9px);
+          .wrap-card-slide {
+            min-width: 120px;
+            max-width: 120px;
+            width: 120px;
+            transition: 0s;
+            height: 200px;
+            background-color: #24262b;
+            border-radius: 10px;
+            text-align: center;
+            padding: 5px;
+            margin: 10px;
+            position: relative;
+            display: grid;
+            grid-template-rows: auto 30px;
+            border: 3px solid transparent;
+            transition: 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            &.white {
+              .hover {
+                background-color: #fff;
+              }
+            }
+
+            &.green {
+              .hover {
+                background-color: $success-color;
+              }
+            }
+
+            &.yellow {
+              .hover {
+                background-color: $warning-color;
+              }
+            }
+
+            &.blue {
+              .hover {
+                background-color: rgb(24, 130, 236);
+              }
+            }
+
+            &.active {
+              border: 3px solid $white-opacity;
+
+              .top {
+                transform: scale(1.1);
+                .multiplier {
+                  font-size: 18px !important;
+                  margin-top: -73px !important;
+
+                }
+              }
+
+              &.white {
+                border-color: #fff;
+                .multiplier {
+                  color: #fff !important;
+                }
+              }
+
+              &.green {
+                border-color: $success-color;
+                .multiplier {
+                  color: $success-color !important;
+                }
+              }
+
+              &.yellow {
+                border-color: $warning-color;
+                .multiplier {
+                  color: $warning-color !important;
+                }
+              }
+
+              &.blue {
+                border-color: rgb(24, 130, 236);
+                .multiplier {
+                  color: rgb(24, 130, 236) !important;
+                }
+              }
+            }
+
+            &.standon {
+              border: 3px solid $white-opacity;
+            }
+
+            .top {
+              img {
+                width: 80px;
+                margin: 15px auto;
+              }
+              .multiplier {
+                font-size: 14px;
+                color: rgb(187, 187, 187);
+                margin-top: -72px;
+              }
+            }
+            .hover {
+              background-color: $white-opacity;
+              border-radius: 5px;
+              width: 100%;
+              &.white {
+                background-color: rgba(255, 255, 255, 0.653);
+              }
+
+              &.green {
+                background-color: $success-color;
+              }
+
+              &.yellow {
+                background-color: $warning-color;
+              }
+              &.blue {
+                background-color: rgb(24, 130, 236);
+              }
+            }
+          }
+        }
+      }
+    }
+    .details-container {
+      background-color: #24262b;
+      border-radius: 10px;
+      padding: 5px 0;
+      height: 100%;
+      background-color: #24262b;
+      position: relative;
+      border-radius: 10px;
+      .type-betting {
+        width: calc(100% - 40px);
+        margin: 10px auto 0 auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 5px;
+        .betting-type {
+          font-size: 15px;
+          text-transform: uppercase;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+          align-items: center;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.11);
+
+          &:hover,
+          &.active {
+            span {
+              color: #fff;
+            }
+            img {
+              filter: brightness(0) invert(1);
+            }
+          }
+
+          &.active {
+            border-bottom: 2px solid $main-color;
+          }
+          span {
+            margin: 10px 0;
+            color: #686f78;
+          }
+          img {
+            width: 20px;
+          }
+        }
+      }
+      .bet-players {
+        width: calc(100% - 40px);
+        margin: 10px auto 0 auto;
+        background-color: $black-opacity;
+        height: 290px;
+        border-radius: 5px;
+        padding: 10px 0 5px 0;
+        overflow-y: auto;
+        box-shadow: inset 0 -10px 10px $black-opacity;
+
+        .wrap-better {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          padding: 10px;
+          background-color: rgba(255, 255, 255, 0.05);
+          margin: 0 10px 5px 10px;
+          border-radius: 5px;
+
+          & > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 15px;
+              margin-right: 5px;
+            }
+            &,
+            span {
+              font-size: 15px;
+              &.hidden-text {
+                color: #686f78;
+              }
+            }
+          }
+
+          .name {
+            justify-content: left !important;
+          }
+        }
+      }
+      .bet-button {
+        width: calc(100% - 40px);
+        background: $main-color;
+        border-radius: 5px;
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+        margin: 0px auto;
+        &:hover {
+          background-color: darken($main-color, 5);
+        }
+        &.disabled {
+          cursor: not-allowed;
+          opacity: 0.3;
+        }
+      }
+      .label {
+        color: #686f78;
+        font-family: "Bai Jamjuree";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 11px;
+        text-transform: uppercase;
+        line-height: 18px;
+        margin: 0 3px;
+        transition: 0s;
+      }
+      .small-container {
+        width: calc(100% - 40px);
+        margin: 0 auto 20px auto;
+
+        .difficulty {
+          margin: 5px 0;
+          display: grid;
+          grid-template-columns: auto auto auto;
+          background-color: rgba(255, 255, 255, 0.026);
+          border-radius: 5px;
+          .diff-item {
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 15px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #686f78;
+            transition: 0.25s cubic-bezier(0.77, 0, 0.175, 1);
+            &.active {
+              color: #ddd;
+              background-color: $white-opacity;
+            }
+          }
+        }
+      }
+
+      .inputs-two {
+        width: 100%;
+        margin: 5px auto;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 5px;
+        border-radius: 5px;
+        height: max-content;
+        .label {
+          font-size: 12px;
+        }
+        .input-form {
+          .input-side {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 8px 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            border: 2px solid transparent;
+            transition: 0s;
+            &:focus,
+            &:hover {
+              border: 2px solid $white-opacity;
+            }
+
+            img {
+              width: 15px;
+            }
+
+            input {
+              width: 80%;
+              outline: none;
+              border: none;
+              background-color: transparent;
+              margin: 0 10px;
+              transition: 0s;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      .betting {
+        padding: 10px 20px;
+        margin: 5px auto 0 auto;
+        .partittwo {
+          display: grid;
+          grid-template-columns: auto auto;
+          grid-gap: 5px;
+          background-color: #2a2c30;
+          border-radius: 5px;
+          height: max-content;
+          margin: 5px auto;
+          padding: 5px;
+
+          &.disabled {
+            .input {
+              &,
+              div,
+              input {
+                cursor: not-allowed;
+                opacity: 0.5;
+              }
+            }
+          }
+
+          .left-buttons {
+            display: grid;
+            grid-template-columns: auto auto;
+            & > div {
+              padding: 10px;
+              margin: 0 5px 0 0;
+              font-size: 13px;
+              color: #686f78;
+              height: max-content;
+              &.active {
+                background-color: #32343a;
+                color: #fff;
+              }
+            }
+          }
+          .input {
+            border: none;
+            margin: 0;
+            background-color: #1e2024;
+            &:hover {
+              border: none;
+            }
+          }
+        }
+
+        .input {
+          width: 100%;
+          margin: 4px auto;
+          background-color: rgba(255, 255, 255, 0.05);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border: 2px solid transparent;
+          border-radius: 5px;
+          &:focus,
+          &:hover {
+            border: 2px solid $white-opacity;
+          }
+
+          .right {
+            color: #686f78;
+            margin: 0 8px;
+            font-size: 17px;
+          }
+
+          &.mines-input {
+            img {
+              width: 17px;
+              margin: 0 10px;
+            }
+          }
+
+          .right {
+            display: flex;
+            .suggestions {
+              display: flex;
+              align-items: center;
+              .sugg {
+                margin: 0 0px 0 5px;
+                padding: 5px 10px;
+                color: #7b828c;
+                cursor: pointer;
+                margin: 0 0 0 5px;
+                border-radius: 7px;
+                font-size: 15px;
+                background-color: rgba(255, 255, 255, 0.05);
+                &:hover {
+                  color: #ddd;
+                }
+              }
+            }
+          }
+
+          img {
+            margin: 0 5px;
+          }
+          input {
+            margin-left: 5px;
+            width: 90%;
+            background-color: transparent !important;
+            outline: none;
+            border: none;
+            font-family: "Bai Jamjuree";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 24px;
+            color: #ffffff;
+          }
+
+          .duplicate-buttons {
+            display: flex;
+            .button {
+              padding: 5px 10px;
+              color: #7b828c;
+              cursor: pointer;
+              margin: 0 0 0 5px;
+              background-color: rgba(255, 255, 255, 0.05);
+              &:hover {
+                color: #fff;
+                background-color: $white-opacity-second;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

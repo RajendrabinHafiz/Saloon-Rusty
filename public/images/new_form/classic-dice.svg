@@ -1,0 +1,20 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.32 32.83">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #757575;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>classic-dice</title>
+  <rect class="cls-1" width="51.32" height="24.85" rx="12.42"/>
+  <path class="cls-2" d="M39.34,48.43" transform="translate(11.98 -11.98)"/>
+  <path class="cls-2" d="M39.34,2.89" transform="translate(11.98 -11.98)"/>
+  <polygon class="cls-1" points="32.39 27.83 20.92 27.83 26.65 32.83 32.39 27.83"/>
+</svg>

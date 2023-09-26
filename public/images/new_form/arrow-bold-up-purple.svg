@@ -1,0 +1,12 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.51 42.34">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7f47fd;
+      }
+    </style>
+  </defs>
+  <title>arrow-bold-up-purple</title>
+  <path class="cls-1" d="M22.9,43.46,42.74,25.05a.91.91,0,0,0-.56-1.63H2.5a.91.91,0,0,0-.56,1.63L21.78,43.46A.9.9,0,0,0,22.9,43.46Z" transform="translate(-1.58 -1.31)"/>
+  <path class="cls-1" d="M12.22,1.31H32.46a0,0,0,0,1,0,0V25.85a1.68,1.68,0,0,1-1.68,1.68H13.9a1.68,1.68,0,0,1-1.68-1.68V1.31a0,0,0,0,1,0,0Z" transform="translate(43.09 27.53) rotate(180)"/>
+</svg>

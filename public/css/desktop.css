@@ -1,0 +1,267 @@
+.page-content {
+  width: 72vw;
+  position: relative;
+  left: 12vw;
+  padding: 15px;
+  /* 
+  padding-top: 90px;
+   padding-left: 49px;
+   */
+  padding-top: 98px;
+}
+
+/* 
+ *
+ * HEADER
+ *
+ */
+.header--desktop {
+  visibility: visible;
+}
+
+.App.chat-collapsed .header {
+  width: calc(88vw) !important;
+  position: absolute;
+  right: 0;
+}
+
+.header {
+  width: 72vw;
+  min-width: 255px;
+  position: absolute;
+  right: 16vw;
+}
+
+.header__item {
+  margin-right: 40px;
+}
+
+.header__item--withdraw {
+  margin-right: 10px;
+}
+
+.header__item--deposit {
+  margin-right: 10px;
+}
+
+.header__item--side-part {
+  margin-left: auto;
+}
+
+
+#lsidebar {
+  height: 100vh;
+  /* width: 12vw; */
+  min-width: 30px;
+  background: #1e2024;
+  overflow: hidden;
+}
+
+.header-container {
+  height: 81px;
+  padding: 0 10% 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divider {
+  background: #292c32;
+  height: 1px;
+  width: 80%;
+}
+
+.lsidebar-divider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.lsidebar-hider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: #24262b;
+}
+
+.house-games {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 10% 16px 10%;
+  height: 64px;
+}
+
+.games__title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.menuimg-title {
+  margin-right: 8px;
+}
+
+.down-arrow {
+  transform: rotate(-90deg);
+}
+
+.down-arrow:hover {
+  fill: #fff;
+  transition: 0.25s ease-in;
+  cursor: pointer;
+}
+
+.sitems {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.sitems li {
+  position: relative;
+  animation: fadeInd 0.5s ease-in-out;
+}
+
+@keyframes fadeInd {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.sitems li .icon {
+  width: 87.6%;
+  z-index: 10;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.25s, opacity 0.25s, filter 0.25s;
+  display: flex;
+  align-items: center;
+  margin: 0 6.6% 2px 6.6%;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.sitems li .icon img {
+  display: inline-block;
+  filter: brightness(0) saturate(100%) invert(38%) sepia(2%) saturate(3061%)
+    hue-rotate(178deg) brightness(108%) contrast(77%);
+  width: 20px;
+  margin-left: 16px;
+  margin-right: 12px;
+}
+
+.sitems li:hover .icon {
+  transition: 0.25s ease-in;
+  background: #24262b;
+  color: #fff !important;
+  opacity: 1;
+  border-radius: 20px;
+}
+
+.sitems li:active .icon .menuimg,
+.micon-active .menuimg {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(27%) saturate(4702%)
+    hue-rotate(346deg) brightness(98%) contrast(86%) !important;
+}
+
+.sitems li:active .icon .label,
+.micon-active .label {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(340deg) brightness(114%) contrast(101%);
+}
+
+.micon-active {
+  background: #24262b;
+}
+
+.micon-active .label {
+  color: #fff;
+}
+
+.sitems li .label {
+  width: 90px;
+  color: #686f78;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sitems li:hover .label {
+  color: #fff;
+  transition: 0.25s ease-in;
+}
+
+/* 
+ *
+ * CHAT
+ *
+ */
+.chat {
+  height: calc(100vh);
+  width: 16vw;
+  min-width: 250px;
+}
+
+/* Disable chat from collapsing on desktop */
+.chat.hidden {
+  display: flex !important;
+}
+
+/* 
+ *
+ * ROULETTE
+ *
+ */
+
+.roulette {
+}
+
+/*
+ *
+ *  FT
+ *
+ */
+.FT__top {
+  position: relative;
+}
+.FT__bars {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.FT__spinner-container {
+  margin-bottom: -50px;
+}
+
+.tower {
+  padding-top: 100px;
+}
+
+/*
+ *
+ *  TOWER
+ *
+ */
+.tower__details {
+  margin-right: 15px;
+}
+
+/* 
+ *
+ * MISC
+ *
+ */
+
+.hidden-on-desktop {
+  display: none;
+}

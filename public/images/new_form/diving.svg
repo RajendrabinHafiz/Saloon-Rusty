@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #39f;
+      }
+    </style>
+  </defs>
+  <title>diving</title>
+  <g>
+    <path class="cls-1" d="M2.44,25.5H42a2.7,2.7,0,1,0,0-5.4H2.44a2.7,2.7,0,1,0,0,5.4Z" transform="translate(0.26)"/>
+    <path class="cls-1" d="M22.16,13.35a6.68,6.68,0,1,0-6.67-6.67A6.68,6.68,0,0,0,22.16,13.35Z" transform="translate(0.26)"/>
+    <path class="cls-1" d="M28.91,38.92a6.68,6.68,0,1,0-6.67,6.68A6.67,6.67,0,0,0,28.91,38.92Z" transform="translate(0.26)"/>
+  </g>
+  <path class="cls-1" d="M22.24,32.25" transform="translate(0.26)"/>
+  <path class="cls-1" d="M22.24,13.5" transform="translate(0.26)"/>
+</svg>

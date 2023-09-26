@@ -1,0 +1,503 @@
+#hilo {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  &.mobile {
+    width: calc(100% - 10px);
+    .end-bar {
+      position: relative !important;
+      margin: 20px auto 0 auto;
+      display: inline-flex !important;
+    }
+    .wrap-styled {
+      min-height: unset !important;
+      height: max-content !important;
+    }
+    .wrap-line {
+      display: block !important;
+      .game-container {
+        width: calc(100% - 20px) !important;
+        padding: 10px 0;
+        .cards-used {
+          height: 165px !important;
+          .card-container {
+            width: 80px !important;
+            min-width: 80px !important;
+            .status {
+              max-width: unset !important;
+              font-size: 10px !important;
+            }
+          }
+        }
+        .profit-details {
+          display: block !important;
+          padding: 10px 0 2px 0 !important;
+        }
+        #preview-cards {
+          display: grid !important;
+          .card-silence {
+            .label-card {
+              width: 100px !important;
+              font-size: 10px !important;
+              margin: 0 auto 10px auto !important;
+            }
+            .square {
+              height: 110px !important;
+              width: 80px !important;
+              margin: 10px 15px;
+              span {
+                font-size: 25px !important;
+              }
+
+              img {
+                width: 30px !important;
+              }
+            }
+          }
+
+          .center-cards-player {
+            .main-card {
+              width: 80px !important;
+              height: 110px !important;
+              top: calc(50% - 17px) !important;
+              .skin-button {
+                top: -5px !important;
+                right: -5px !important;
+                img {
+                  width: 12px !important;
+                }
+              }
+            }
+            .cards-behind {
+              width: 80px !important;
+              height: 110px !important;
+              top: calc(50% - 17px) !important;
+              div {
+                height: 110px !important;
+              }
+            }
+          }
+        }
+      }
+      .wrap-details-controller {
+        width: calc(100% - 20px) !important;
+        height: max-content !important;
+        padding: 10px;
+      }
+    }
+  }
+  .container {
+    width: 100%;
+    position: relative;
+    .wrap-styled {
+      position: relative;
+      transition: 0s;
+      min-height: 600px;
+      height: 650px;
+      border-radius: 10px;
+      padding: 10px 10px 0 10px;
+      background-color: #1e2024;
+    }
+    .wrap-line {
+      width: 100%;
+      height: calc(100% - 30px);
+      display: flex;
+      & > div {
+        margin: 10px;
+        border-radius: 10px;
+      }
+      .wrap-details-controller {
+        position: relative;
+        width: 25%;
+        background-color: #24262b;
+        height: 100%;
+        padding: 10px;
+        .button {
+          width: calc(100% - 20px);
+          margin: 10px auto;
+          display: flex;
+          align-items: center;
+          background-color: rgba(255, 255, 255, 0.036);
+          border-radius: 5px;
+          margin: 10px auto;
+          padding: 10px 0;
+          text-align: center;
+          justify-content: center;
+          &.bet {
+            background: $main-color;
+            color: #fff;
+            &:hover {
+              background: darken($main-color, 5);
+            }
+          }
+          &.disabled {
+            cursor: not-allowed;
+            opacity: 0.3;
+          }
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.066);
+          }
+          span {
+            display: inline-flex;
+          }
+          img {
+            width: 15px;
+            margin: 0 7px;
+          }
+        }
+
+        .form-input {
+          width: calc(100% - 20px);
+          margin: 20px auto 10px auto;
+
+          .label {
+            color: #686f78;
+            font-family: "Bai Jamjuree";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            line-height: 18px;
+            margin: 0 3px;
+          }
+          .input {
+            width: 100%;
+            margin: 4px auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            &:focus,
+            &:hover {
+              border: 2px solid $white-opacity;
+            }
+            .left {
+              width: 50%;
+              display: flex;
+              margin: 0 10px;
+              align-items: center;
+              img {
+                width: 20px;
+              }
+              input {
+                margin-left: 5px;
+                width: 90%;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                font-family: "Bai Jamjuree";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 24px;
+                color: #ffffff;
+              }
+            }
+
+            .duplicate-buttons {
+              display: flex;
+              .button {
+                padding: 5px 10px;
+                color: #7b828c;
+                cursor: pointer;
+                margin: 0 0 0 5px;
+                background-color: rgba(255, 255, 255, 0.05);
+                &:hover {
+                  color: #fff;
+                  background-color: $white-opacity-second;
+                }
+              }
+            }
+          }
+        }
+      }
+      .game-container {
+        width: 75%;
+        background-color: $black-opacity;
+        height: 100%;
+        .bottom-content {
+          width: 100%;
+          height: 50%;
+          .profit-details {
+            margin: 10px auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            width: calc(100% - 50px);
+            grid-gap: 10px;
+            .form {
+              .label {
+                color: #686f78;
+                font-size: 13px;
+                margin: 0 4px;
+              }
+              .input {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                margin: 5px 0;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 2px solid transparent;
+                &:hover {
+                  border: 2px solid $white-opacity;
+                }
+                .left {
+                  display: flex;
+                  align-items: center;
+                  width: 90%;
+                  input {
+                    outline: none;
+                    background-color: transparent;
+                    border: none;
+                    width: 100%;
+                  }
+                }
+
+                & > img {
+                  margin: 0 10px;
+                }
+              }
+            }
+          }
+          .cards-used {
+            position: relative;
+            display: flex;
+            width: calc(100% - 50px);
+            max-width: calc(100% - 20px);
+            height: 195px;
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px 10px 5px 10px;
+            border-radius: 10px;
+
+            & > span {
+              display: flex;
+            }
+
+            .status-made {
+              height: 150px;
+              width: 1px;
+              position: relative;
+              img {
+                width: 50%;
+              }
+              .wrap {
+                position: absolute;
+                top: 50%;
+                left: -20px;
+                z-index: 99;
+                border: 2.4px solid $black-opacity;
+                width: 40px;
+                height: 40px;
+                box-shadow: #2a2f3c33 0 0 0 2px;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.1em;
+                transform: translateY(-50%);
+                border-radius: 7px;
+              }
+            }
+            .card-container {
+              width: 100px;
+              min-width: 100px;
+              margin: 0 5px;
+
+              &.animate {
+                animation: righting 0.5s ease-in-out;
+              }
+
+              @keyframes righting {
+                from {
+                  opacity: 0;
+                  transform: translateX(50%);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateX(0%);
+                }
+              }
+
+              .card-poker {
+                &.skipped {
+                  opacity: 0.4;
+                }
+              }
+              .status {
+                width: max-content;
+                max-width: calc(100% - 10px);
+                padding: 1px 15px;
+                background-color: #3399ff;
+                font-size: 12px;
+                margin: 5px auto;
+                border-radius: 10px;
+                text-align: center;
+                border-bottom: 2px solid darken(#3399ff, 20);
+
+                &.win {
+                  background-color: $success-color;
+                  border-bottom: 2px solid darken($success-color, 20);
+                }
+                &.lose {
+                  background-color: $error-color;
+                  border-bottom: 2px solid darken($error-color, 20);
+                }
+              }
+            }
+          }
+        }
+        #preview-cards {
+          height: 50%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          .card-silence {
+            width: 110px;
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+            flex-direction: column;
+            .square {
+              border: 3px solid rgba(#686f78, 0.3);
+              height: 150px;
+              width: 110px;
+              border-radius: 20px;
+              span {
+                display: block;
+                margin: 10px 15px;
+                font-size: 35px;
+                color: rgba(#686f78, 0.3);
+                text-transform: uppercase;
+              }
+              img {
+                transition: 0s;
+                width: 40px;
+                filter: brightness(0) saturate(10%) invert(22%) sepia(27%)
+                  saturate(0%) hue-rotate(1deg) brightness(98%) contrast(100%) !important;
+                margin: 0 5px;
+              }
+            }
+            .label-card {
+              font-size: 12px;
+              text-transform: uppercase;
+              font-weight: 600;
+              margin: 10px auto;
+              color: #686f78;
+              text-align: center;
+            }
+          }
+          .center-cards-player {
+            position: relative;
+            & > div {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+            .cards-behind {
+              width: 110px;
+              height: 170px;
+              top: calc(50% - 13px);
+              div {
+                position: absolute;
+                left: 0;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.529);
+                border-radius: 10px;
+                width: 100%;
+                height: 150px;
+
+                &:nth-child(1) {
+                  top: 3px;
+                  z-index: 9999;
+                }
+                &:nth-child(2) {
+                  top: 5px;
+                  z-index: 999;
+                }
+                &:nth-child(3) {
+                  top: 9px;
+                  z-index: 99;
+                }
+                &:nth-child(4) {
+                  top: 13px;
+                  z-index: 9;
+                }
+              }
+            }
+            .main-card {
+              width: 110px;
+              height: 152px;
+              top: calc(50% - 23px);
+              .card-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                perspective: 700px;
+                transition: 0.25s;
+                transform-style: preserve-3d;
+                transition-timing-function: ease-out;
+                transition-property: transform, box-shadow;
+
+                &.active {
+                  transform: rotateY(180deg);
+                }
+
+                img {
+                  width: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  margin: 0;
+                  padding: 0;
+                  border: 0;
+                  vertical-align: baseline;
+                }
+
+                .card-poker {
+                  margin: 0;
+                  transform: scaleX(-1);
+                  border-radius: 10px;
+                }
+
+                .default-card {
+                  -webkit-backface-visibility: hidden;
+                  backface-visibility: hidden;
+                }
+              }
+              .skip-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #30343c;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+                padding: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+                z-index: 99;
+                &:hover {
+                  background: lighten(#30343c, 5);
+                }
+                &.disabled {
+                  cursor: not-allowed;
+                  opacity: 0.3;
+                }
+                img {
+                  width: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
